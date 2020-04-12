@@ -16,6 +16,6 @@ We gonna make an external schema, split the simple string schema to multiples fi
      📃 User.schema
      📃 Project.schema
      📃 Tasks.schema
-``
+```
 
 This structure permit to the project to be more readable and maintainable.
