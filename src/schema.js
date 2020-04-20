@@ -7,6 +7,16 @@ import {
   resolvers as userResolvers,
 } from './schema/user.schema';
 
+import {
+  typeDef as Project,
+  resolvers as projectResolvers,
+} from './schema/project.schema';
+
+import {
+  typeDef as Task,
+  resolvers as taskResolvers,
+} from './schema/task.schema';
+
 // Add more schema and model here
 //....
 //....
@@ -30,6 +40,6 @@ const resolvers = {};
 
 // Do not forget to merge at the end of typeDefs and resolvers
 export const schema = makeExecutableSchema({
-  typeDefs: [ Query, User],
-  resolvers: merge(resolvers, userResolvers),
+  typeDefs: [ Query, User, Project, Task],
+  resolvers: merge(resolvers, userResolvers, projectResolvers, taskResolvers),
 });
