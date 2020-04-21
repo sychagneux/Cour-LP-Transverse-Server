@@ -7,17 +7,18 @@ const ignoredFields = ['_id','created_at', '__v', /detail.*_info/];
 
 export const typeDef = `
   type Task {
+    _id: ID!
     name: String
     description: String
     duration: String
-    Status: Int
+    status: Int
   }
 
   input TaskInput{
     name: String
     description: String
     duration: String
-    Status: Int
+    status: Int
   }
 
 
@@ -42,6 +43,7 @@ export const resolvers = {
       return "Task schema";
     },
     tasks: async () => {
+      return Task.find();
       let tasks = [];
       for (let index = 0; index < 5; index++) {
         tasks.push(dummy(Task, {
@@ -52,6 +54,8 @@ export const resolvers = {
       return tasks;
     },
     task: async (root, { _id }, context, info) => {
+      
+      return Task.findOne({_id});
       return dummy(Task, {
         ignore: ignoredFields,
         returnDate: true

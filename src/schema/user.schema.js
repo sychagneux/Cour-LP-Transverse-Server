@@ -48,6 +48,7 @@ export const resolvers = {
     },
     // Get all users
     users: async () => {
+      return User.find();
       let users = [];
       for (let index = 0; index < 5; index++) {
         users.push(dummy(User, {
@@ -60,7 +61,7 @@ export const resolvers = {
     // Get user by ID
     user: async (root, { _id }, context, info) => {
       // With a real mongo db
-      //return User.findOne({ _id });
+      return User.findOne({ _id });
 
       //Mogoose dummy
       return dummy(User, {
@@ -72,7 +73,7 @@ export const resolvers = {
   Mutation: {
     createUser: async (root, args, context, info) => {
       await User.create(args);
-      return User.name;
+      return true;
     },
     createUserWithInput: async (root, { input }, context, info) => {
       //input.password = await bcrypt.hash(input.password, 10);
@@ -86,3 +87,32 @@ export const resolvers = {
     }
   }
 };
+
+/*
+
+DATA EXPLORATION
+Use on graphql web page
+
+# Write your query or mutation here
+query GetAllUsers{
+  users{
+    _id
+    name  
+    surname
+  }
+}
+
+# Write your query or mutation here
+query GetOneUserByID{
+  user(_id : "5e9deb26930d0e19e49d8373"){
+    _id
+    name
+    surname
+  }
+}
+
+mutation CreateUser{
+  createUser(name: "MyFirstUser",  pseudo: "first.user")
+}
+
+*/

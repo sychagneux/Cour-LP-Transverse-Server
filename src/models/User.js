@@ -9,7 +9,7 @@ const userSchema = new Schema({
   pseudo: String,
   password: String,
   token: String,
-  projects: { type: Schema.Types.ObjectId, ref: 'Project' },
+  projects: [{ type: Schema.Types.ObjectId, ref: 'Project' }],
 }, {collection:'User'});
 
 

@@ -1,5 +1,6 @@
 // project.js
 import {Project} from "../models/Project";
+import { Task } from "../models/Task";
 //Required for dummy data
 const dummy = require('mongoose-dummy');
 const ignoredFields = ['_id','created_at', '__v', /detail.*_info/];
@@ -30,6 +31,7 @@ export const typeDef = `
     createProjectWithInput(input: ProjectInput!): Project
     deleteProject(_id: ID!): Boolean
     updateProject(_id: ID!,input: ProjectInput!): Project
+    addTaskToProject(_id: ID!,input: TaskInput!): Boolean
   }
 
 `;
@@ -40,29 +42,20 @@ export const resolvers = {
       return "Project schema";
     },
     projects: async () => {
-      let projects = [];
-      for (let index = 0; index < 5; index++) {
-        projects.push(dummy(Project, {
-          ignore: ignoredFields,
-          returnDate: true
-        }))
-      } 
-      return projects;
+      var test =  await Project.find().populate('tasks');
+      console.log(test)
+      return test;
     },
     project: async (root, { _id }, context, info) => {
-      return dummy(Project, {
-        ignore: ignoredFields,
-        returnDate: true
-      })
-    },
+      return Project.findOne({_id}).populate('tasks');
+    }
   },
   Mutation: {
     createProject: async (root, args, context, info) => {
       await Project.create(args);
-      return Project.name;
+      return true;
     },
     createProjectWithInput: async (root, { input }, context, info) => {
-      //input.password = await bcrypt.hash(input.password, 10);
       return Project.create(input);
     },
     deleteProject: async (root, { _id }, context, info) => {
@@ -70,6 +63,18 @@ export const resolvers = {
     },
     updateProject: async (root, { _id, input }) => {
       return Project.findByIdAndUpdate(_id, input, { new: true });
-    }
+    },
+    addTaskToProject: async (root, { _id, input }) => {
+      var task = await Task.create(input);
+      var project = await Project.findByIdAndUpdate(_id,{
+        $push: {
+          tasks: task
+        }
+      })
+      console.log(task)
+      console.log(project)
+      project.save();
+      return true;
+    },
   },
 };
