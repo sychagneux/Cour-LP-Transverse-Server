@@ -47,7 +47,7 @@ export const resolvers = {
       return test;
     },
     project: async (root, { _id }, context, info) => {
-      return Project.findOne({_id}).populate('tasks');
+      return await Project.findOne({_id}).populate('tasks');
     }
   },
   Mutation: {
