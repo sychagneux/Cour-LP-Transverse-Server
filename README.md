@@ -34,4 +34,74 @@ New-Item -ItemType file index.js
 Now in the file index.js, we gonna create our server.
 Edit the file, and then write this code: 
 
+import { ApolloServer,gql } from 'apollo-server';
+
+Write a schema:
+
+```
+
+type Book {
+  title: String
+  author: String
+}
+
+```
+In your schema add the query type that describe all query that you can get
+
+```
+
+type Query {
+  books: [Book]
+}
+
+```
+
+Write a resolvers:
+
+
+```
+const resolvers = {
+    Query: {
+      books: () => books,
+    },
+  };
+```
+
+Add some dummy datas: 
+
+
+```
+
+const books = [
+    {
+      title: 'Harry Potter and the Chamber of Secrets',
+      author: 'J.K. Rowling',
+    },
+    {
+      title: 'Jurassic Park',
+      author: 'Michael Crichton',
+    },
+  ];
+
+```
+
+Then init AppoloServer: 
+
+``` const server = new ApolloServer({ typeDefs, resolvers }); ```
+
+Start the server : 
+
+```
+server.listen().then(({ url }) => {
+  console.log(`🚀  Server ready at ${url}`);
+});
+```
+
+Then run 
+
+```
+
+$ > npm start
+
+```
 
