@@ -39,11 +39,12 @@ import { ApolloServer,gql } from 'apollo-server';
 Write a schema:
 
 ```
-
-type Book {
-  title: String
-  author: String
-}
+const typeDefs = gql`
+    type Book {
+      title: String
+      author: String
+    }
+    `;
 
 ```
 In your schema add the query type that describe all query that you can get
