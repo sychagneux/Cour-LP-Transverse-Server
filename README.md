@@ -31,7 +31,47 @@ New-Item -ItemType file index.js
 
 ## Edit index.js
 
-Now in the file index.js, we gonna create our server.
-Edit the file, and then write this code: 
+Now in the file index.js, we gonna create our schema.
+The schema of the master was a sample.
 
+On the gql replace the schema with the UML view in the course.
 
+<details>
+  <summary>Get the solution here</summary>
+ 
+```
+const typeDefs = gql`
+  type User {
+    name: String
+    surname: String
+    login: String
+    pass: String
+    token: String
+    projects: [Project]
+  }
+  type Project {
+    name: String
+    description: String
+    tasks: [Task]
+  }
+  type Task {
+    name: String
+    description: String
+    duration: String
+    Status: Int
+  }
+  type Query {
+    users: [User]
+    projects: [Project]
+    Tasks: [Task]
+  }
+`; 
+```
+
+</details>
+
+Now create some users, with dummy data.
+
+Change the query in the resolvers
+
+And then check the result on localhost:4000/ 
