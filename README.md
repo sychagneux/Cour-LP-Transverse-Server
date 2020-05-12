@@ -10,12 +10,13 @@ We gonna make an external schema, split the simple string schema to multiples fi
 📁 Model - Mongoose (Database)
      📃 User
      📃 Project
-     📃 Tasks
+     📃 Task
      
 📁 Schema - GraphQL Schema ( Typedefs & Resolvers )
      📃 User.schema
      📃 Project.schema
-     📃 Tasks.schema
+     📃 Task.schema
 ```
 
-This structure permit to the project to be more readable and maintainable.
+Now in this part you can add all your entities to match with the specification.
+
