@@ -72,6 +72,38 @@ const typeDefs = gql`
 
 Now create some users, with dummy data.
 
+
+```
+const users = [
+    {
+      name: "Doe",
+      surname: "John",
+      login: "user1",
+      pass: "password1"
+    },
+    {
+      name: "C. Harden",
+      surname: "James",
+      login: "user2",
+      pass: "password2"
+    },
+  ];
+```
+
 Change the query in the resolvers
 
 And then check the result on localhost:4000/ 
+
+You can try the following query on the playground: 
+
+```
+query {
+  users{
+    name
+    surname
+  }
+}
+```
+
+You may obtain some result by the server.
+
