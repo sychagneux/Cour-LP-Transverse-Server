@@ -2,7 +2,7 @@
 
 Now graphql is configured, you can play with the api at localhost:4000
 
-## 1️⃣ Part 2 
+## 1️⃣ Add next entities 
 
 In the last branch we initialize the mongoose Model, and the GraphQL Schema for **User**
 
