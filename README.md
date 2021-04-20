@@ -18,13 +18,13 @@ We gonna make an external schema, split the simple string schema to multiples fi
      📃 Tasks.schema
 ```
 
-This structure permit to the project to be more readable and maintainable.
+> 👍 This structure permit to the project to be more readable and maintainable.
 
 You have to create a file `schema.js`
 
 This file will import all the other schema files and merge them.
 
-We gonna define for now the base schema and resolver var.
+We gonna define for now the base schema and resolver vars.
 
 ```js 
 // General query
