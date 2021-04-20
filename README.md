@@ -1,6 +1,6 @@
 # Cour-LP-Transverse-Server
 
-## MongoDB use
+##1️⃣ MongoDB use
 
 We gonna add a package that permit to define some environement vars.
 
@@ -28,7 +28,7 @@ IP_ADDRESS = localhost
 
 ```
 
-## In `index.js`
+## 2️⃣ In `index.js`, call DotEnv
 
 We will now import dotenv file and mongoose:
 
@@ -51,7 +51,7 @@ Now you can request some Data in your database.
 
 You can use collection on your resolvers like seen in the courses.
 
-## Data interaction
+## 3️⃣ Data interaction ==> First Resolvers
 
 Now you can use mongo collection, to get all users simply use :
 
