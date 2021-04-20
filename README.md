@@ -1,6 +1,6 @@
 # Cour-LP-Transverse-Server
 
-##1️⃣ MongoDB use
+## 1️⃣ MongoDB use
 
 We gonna add a package that permit to define some environement vars.
 
