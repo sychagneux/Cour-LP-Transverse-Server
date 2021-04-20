@@ -1,8 +1,8 @@
 # Cour-LP-Transverse-Server
 
-Now graphql is configured, you can play with the api at localhost:4000
+Now graphql is configured, you can play with the api at [localhost:4000](localhost:4000)
 
-## Part 2 
+## 1️⃣ Create the schema for GraphQL
 
 We gonna make an external schema, split the simple string schema to multiples files
 
@@ -48,13 +48,13 @@ const resolvers = {};
 
 Then you can create some `Entity.schema.js`, one by entity you want to create.
 
-In each `Entity.schema.js`, you have to define 2 variables: typedefs and resolvers, and export them.
+In each `Entity.schema.js`, you have to define 2 variables: **typedefs** and **resolvers**, and export them.
 
 These variable will be merged with other entities, on the `schema.js`.
 
-## `Project.schema.js`
+## 2️⃣ ** USER ** In the file `User.schema.js`
 
-For exemple for project `Project.schema.js`, you will have
+For exemple for project `User.schema.js`, you will have
 
 > Be careful, one thing change you have to **extend** the **query** type and the **mutation** type on your schema
 > `extend type query `
@@ -80,7 +80,7 @@ export const resolvers = {
 
 ```
 
-## `schema.js`
+## 3️⃣ Merge **User** in `schema.js`
 
 On your `schema.js`, import your User.schema.js:
 
@@ -95,7 +95,7 @@ import {
 
 At the end of your file when you have imported all your entities, you can now merge them.
 
-For each entity added on the `schema.js`, don't forget to add them in the typedefs and resolvers.
+For each entity added on the `schema.js`, don't forget to add them in the **typedefs** and **resolvers**.
 
 ```js
 // Do not forget to merge at the end of typeDefs and resolvers
