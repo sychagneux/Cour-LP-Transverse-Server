@@ -1,4 +1,11 @@
-# Cour-LP-Transverse-Server
+# Server - TD1 - Database configuration to use MongoDB
+
+In this TD we will see how to use and configure MongoDB, the solution has been implemented in the code of the branch.
+
+⚠️ The goal is not to copy / paste the code of the repo ⚠️
+
+
+
 
 ## 1️⃣ MongoDB use
 
