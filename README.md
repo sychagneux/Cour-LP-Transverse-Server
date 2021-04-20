@@ -2,7 +2,7 @@
 
 Now graphql is configured, you can play with the api at localhost:4000
 
-## Part 2 
+## 1️⃣ Part 2 
 
 We gonna make an external schema, split the simple string schema to multiples files
 
@@ -20,3 +20,4 @@ We gonna make an external schema, split the simple string schema to multiples fi
 
 Now in this part you can add all your entities to match with the specification.
 
+In the next part we gonna link the Mongoose Model with the database 🗃️ 
