@@ -22,7 +22,7 @@ We gonna make an external schema, split the simple string schema to multiples fi
 
 > 👍 This structure permit to the project to be more readable and maintainable.
 
-You have to create a file `schema.js`
+➡️ You have to create a file `schema.js`
 
 This file will import all the other schema files and merge them.
 
@@ -48,12 +48,14 @@ const resolvers = {};
 
 ```
 
-Then you can create some `Entity.schema.js`, one by entity you want to create.
+➡️ Then you can create some `Entity.schema.js`, one by entity you want to create.
 
 In each `Entity.schema.js`, you have to define 2 variables: **typedefs** and **resolvers**, and export them.
 
 These variable will be merged with other entities, on the `schema.js`.  
 
+<p>&nbsp;</p>
+  
 <p>&nbsp;</p>
 
 ## 2️⃣ Create User schema & resolvers (`User.schema.js`)
@@ -83,6 +85,8 @@ export const resolvers = {
 }
 
 ```
+  
+<p>&nbsp;</p>
   
 <p>&nbsp;</p>
 
