@@ -2,6 +2,8 @@
 
 Now graphql is configured, you can play with the api at [localhost:4000](localhost:4000)
 
+<p>&nbsp;</p>
+
 ## 1️⃣ Create the schema for GraphQL
 
 We gonna make an external schema, split the simple string schema to multiples files
