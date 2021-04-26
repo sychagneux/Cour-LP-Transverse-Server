@@ -118,7 +118,9 @@ export const schema = makeExecutableSchema({
 
 ```
 
-Then you can update your index.js with the schema we have created.
+<p>&nbsp;</p>
+
+Then you can update your `index.js` with the schema we have created.
 
 ``` js
 
