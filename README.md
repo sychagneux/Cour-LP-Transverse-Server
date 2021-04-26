@@ -52,6 +52,8 @@ In each `Entity.schema.js`, you have to define 2 variables: **typedefs** and **r
 
 These variable will be merged with other entities, on the `schema.js`.  
 
+<p>&nbsp;</p>
+
 ## 2️⃣ USER In the file `User.schema.js`
 
 For exemple for project `User.schema.js`, you will have
@@ -80,6 +82,7 @@ export const resolvers = {
 
 ```
   
+<p>&nbsp;</p>
 
 ## 3️⃣ Merge User in `schema.js`
 
