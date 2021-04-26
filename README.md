@@ -56,7 +56,7 @@ These variable will be merged with other entities, on the `schema.js`.
 
 <p>&nbsp;</p>
 
-## 2️⃣ USER In the file `User.schema.js`
+## 2️⃣ Create User schema & resolvers (`User.schema.js`)
 
 For exemple for project `User.schema.js`, you will have
 
@@ -103,7 +103,10 @@ At the end of your file when you have imported all your entities, you can now me
 
 For each entity added on the `schema.js`, don't forget to add them in the **typedefs** and **resolvers**.
 
+ℹ️ In my example the entities **Project** and **Task** will be create.
+
 ```js
+
 // Do not forget to merge at the end of typeDefs and resolvers
 export const schema = makeExecutableSchema({
   typeDefs: [ Query, User],
@@ -113,7 +116,9 @@ export const schema = makeExecutableSchema({
 ```
 
 Then you can update your index.js with the schema we have created.
+
 ``` js
+
 import { ApolloServer, gql } from "apollo-server";
 import { schema } from "./src/schema";
 
@@ -124,5 +129,6 @@ const server = new ApolloServer({ schema })
 server.listen().then(({ url }) => {
   console.log(`==> 🚀  Server ready at ${url} `);
 });
+
 ```
   
