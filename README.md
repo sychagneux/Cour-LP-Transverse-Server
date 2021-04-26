@@ -10,7 +10,10 @@
 
 - Database creation 
 
-- (Mongoose)
+- Mongoose
+
+
+<p>&nbsp;</p>
 
 
 ## 1️⃣ Initialize the repo
@@ -31,6 +34,9 @@ mkdir src
 touch index.js
 New-Item -ItemType file index.js
 ```
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 
 ## 2️⃣ Edit index.js
 
