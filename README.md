@@ -13,11 +13,14 @@
 - (Mongoose)
 
 
-## First step 
+## 1️⃣ Initialize the repo
 
 Creation of a git repo. 
 
-git clone https://github.com/pipic1/Cour-LP-Transverse-Server.git
+` git clone https://github.com/pipic1/Cour-LP-Transverse-Server.git `
+
+In the master branch, you have a sample of the GraphQL App with a simple schema. 
+
 
 Now initialisation of the project
 ```sh
@@ -29,7 +32,7 @@ touch index.js
 New-Item -ItemType file index.js
 ```
 
-## Edit index.js
+## 2️⃣ Edit index.js
 
 Now in the file index.js, we gonna create our schema.
 The schema of the master was a sample.
@@ -90,9 +93,9 @@ const users = [
   ];
 ```
 
-Change the query in the resolvers
+Change the query in the resolvers, to correctly return the users constant.
 
-And then check the result on localhost:4000/ 
+And then check the result on [localhost:4000](localhost:4000) 
 
 You can try the following query on the playground: 
 
