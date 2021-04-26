@@ -50,13 +50,13 @@ Then you can create some `Entity.schema.js`, one by entity you want to create.
 
 In each `Entity.schema.js`, you have to define 2 variables: **typedefs** and **resolvers**, and export them.
 
-These variable will be merged with other entities, on the `schema.js`.
+These variable will be merged with other entities, on the `schema.js`.  
 
 ## 2️⃣ USER In the file `User.schema.js`
 
 For exemple for project `User.schema.js`, you will have
 
-> Be careful, one thing change you have to **extend** the **query** type and the **mutation** type on your schema
+> ⚠️ Be careful, one thing change you have to **extend** the **query** type and the **mutation** type on your schema
 > `extend type query `
 
 ``` js
@@ -79,6 +79,7 @@ export const resolvers = {
 }
 
 ```
+  
 
 ## 3️⃣ Merge User in `schema.js`
 
@@ -119,3 +120,4 @@ server.listen().then(({ url }) => {
   console.log(`==> 🚀  Server ready at ${url} `);
 });
 ```
+  
