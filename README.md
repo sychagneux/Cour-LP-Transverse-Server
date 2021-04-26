@@ -107,7 +107,6 @@ At the end of your file when you have imported all your entities, you can now me
 
 For each entity added on the `schema.js`, don't forget to add them in the **typedefs** and **resolvers**.
 
-ℹ️ In my example the entities **Project** and **Task** will be create.
 
 ```js
 
@@ -135,4 +134,10 @@ server.listen().then(({ url }) => {
 });
 
 ```
-  
+
+In the next part we gonna implement the full schema.
+
+If you choose to change the theme of the app adapt your schema now, you will save time.
+ 
+ℹ️ In my example the next entities will be **Project** and **Task** .
+ 
