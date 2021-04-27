@@ -29,6 +29,10 @@ touch index.js
 New-Item -ItemType file index.js
 ```
 
+<p>&nbsp</p>
+<p>&nbsp</p>
+
+
 ## 2️⃣ Dependencies (pasckage.json)
 
 
@@ -62,6 +66,10 @@ Then run
 $ > npm install
 
 ```
+
+<p>&nbsp</p>
+
+<p>&nbsp</p>
 
 
 ## 3️⃣ Adapt index.js
