@@ -13,7 +13,7 @@
 - (Mongoose)
 
 
-## First step 
+## 1️⃣ Repo creation 
 
 Creation of a git repo. 
 
@@ -29,7 +29,7 @@ touch index.js
 New-Item -ItemType file index.js
 ```
 
-## Dependencies (pasckage.json)
+## 2️⃣ Dependencies (pasckage.json)
 
 
 Edit your package.json 
@@ -64,7 +64,7 @@ $ > npm install
 ```
 
 
-## Edit index.js
+## 3️⃣ Adapt index.js
 
 Now in the file index.js, we gonna create our server.
 Edit the file, and then write this code: 
