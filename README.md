@@ -77,8 +77,11 @@ $ > npm install
 
 Now in the file index.js, we gonna create our server.
 Edit the file, and then write this code: 
+[Schema basics](https://www.apollographql.com/docs/apollo-server/schema/schema/)
 
+```
 import { ApolloServer,gql } from 'apollo-server';
+```
 
 Write a schema:
 
@@ -89,7 +92,6 @@ const typeDefs = gql`
       author: String
     }
     `;
-
 ```
 In your schema add the query type that describe all query that you can get
 
