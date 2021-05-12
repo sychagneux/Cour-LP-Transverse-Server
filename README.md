@@ -1,5 +1,7 @@
 # Cour-LP-Transverse-Server
 
+This first TP explain how to make a simple GraphQL server.
+
 - Init of the node.js app
 
 - Use appolo server
