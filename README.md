@@ -25,8 +25,7 @@ Now initialisation of the project
 npm init --yes
 npm install apollo-server graphql
 mkdir src
-touch index.js
-New-Item -ItemType file index.js
+// linux: touch index.js or Powershell: New-Item -ItemType file index.js
 ```
 
 <p>&nbsp</p>
@@ -40,23 +39,25 @@ Edit your package.json
 
 ```
   "dependencies": {
-    "apollo-server": "^2.12.0",
+    "apollo-server": "^2.24.0",
     "babel-cli": "^6.26.0",
     "babel-node": "0.0.1-security",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "dotenv": "^8.2.0",
     "graphql": "^15.0.0",
-    "lodash": "^4.17.15",
+    "graphql-tools": "^4.0.7",
+    "lodash": "^4.17.21",
     "mongodb": "^3.5.5",
-    "mongoose": "^5.9.7",
+    "mongoose": "^5.12.7",
+    "mongoose-dummy": "^1.0.8",
     "nodemon": "^2.0.3"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
+    "@babel/cli": "^7.13.16",
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5"
   }
-
 ```
 
 Then run 
