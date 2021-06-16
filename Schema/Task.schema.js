@@ -9,13 +9,14 @@ export const typeDef = `
     name: String,
     description: String,
     duration: String,
-    Status: Int,
+    status: Int,
+    project: Project
   }
   input TaskInput{
     name: String,
     description: String,
     duration: String,
-    Status: Int,
+    status: Int,
   }
   extend type Query {
     taskSchemaAssert: String
@@ -23,7 +24,7 @@ export const typeDef = `
     task(_id: ID!): Task
   }
   extend type Mutation {
-    createTask(name: String!,description: String!): Boolean
+    createTask(name: String!,description: String!,project: ID): Boolean
     createTaskWithInput(input: TaskInput!): Task
     deleteTask(_id: ID!): Boolean
     updateTask(_id: ID!,input: TaskInput!): Task
@@ -38,30 +39,17 @@ export const resolvers = {
     },
     
     tasks: async () => {
-      let tasks = [];
-      for (let index = 0; index < 5; index++) {
-        tasks.push(dummy(Task, {
-          ignore: ignoredFields,
-          returnDate: true
-        }))
-      } 
-      return tasks;
+      return Task.find();
     },
     task: async (root, { _id }, context, info) => {
       // With a real mongo db
-      //return User.findOne({ _id });
-
-      //Mogoose dummy
-      return dummy(Task, {
-        ignore: ignoredFields,
-        returnDate: true
-      })
+      return Task.findOne({ _id });
     },
   },
   Mutation: {
     createTask: async (root, args, context, info) => {
       await Task.create(args);
-      return Task.name;
+      return true;
     },
     createTaskWithInput: async (root, { input }, context, info) => {
       //input.password = await bcrypt.hash(input.password, 10);

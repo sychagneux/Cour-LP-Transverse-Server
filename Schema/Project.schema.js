@@ -1,3 +1,4 @@
+import {Task} from "../model/Task";
 import {Project} from "../model/Project";
 
 const dummy = require('mongoose-dummy');
@@ -8,7 +9,7 @@ export const typeDef = `
     _id: ID!
     name: String,
     description: String,
-    projects: [Project],
+    tasks: [Task],
   }
   input ProjectInput{
     name: String,
@@ -20,7 +21,7 @@ export const typeDef = `
     project(_id: ID!): Project
   }
   extend type Mutation {
-    createProject(name: String!,description: String!): Boolean
+    createProject(name: String!,description: String!): Project
     createProjectWithInput(input: ProjectInput!): Project
     deleteProject(_id: ID!): Boolean
     updateProject(_id: ID!,input: ProjectInput!): Project
@@ -34,30 +35,17 @@ export const resolvers = {
     },
     
     projects: async () => {
-      let projects = [];
-      for (let index = 0; index < 5; index++) {
-        projects.push(dummy(Project, {
-          ignore: ignoredFields,
-          returnDate: true
-        }))
-      } 
-      return projects;
+      return Project.find();
     },
     project: async (root, { _id }, context, info) => {
       // With a real mongo db
-      //return User.findOne({ _id });
-
-      //Mogoose dummy
-      return dummy(Project, {
-        ignore: ignoredFields,
-        returnDate: true
-      })
+      return Project.findOne({ _id });
     },
   },
   Mutation: {
     createProject: async (root, args, context, info) => {
-      await Project.create(args);
-      return Project.name;
+      var project = await Project.create(args);
+      return project;
     },
     createProjectWithInput: async (root, { input }, context, info) => {
       //input.password = await bcrypt.hash(input.password, 10);

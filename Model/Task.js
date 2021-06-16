@@ -8,6 +8,7 @@ const taskSchema = new Schema({
     description: String,
     duration: String,
     status: {Number, default: 0},
+    project: { type: Schema.Types.ObjectId, ref: 'Project', default:null },
 }, {collection:'Task'});
 
 
