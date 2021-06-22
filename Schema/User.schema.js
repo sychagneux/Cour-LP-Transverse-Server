@@ -39,24 +39,10 @@ export const resolvers = {
     },
     
     users: async () => {
-      let users = [];
-      for (let index = 0; index < 5; index++) {
-        users.push(dummy(User, {
-          ignore: ignoredFields,
-          returnDate: true
-        }))
-      } 
-      return users;
+      return User.find();
     },
-    user: async (root, { _id }, context, info) => {
-      // With a real mongo db
-      //return User.findOne({ _id });
-
-      //Mogoose dummy
-      return dummy(User, {
-        ignore: ignoredFields,
-        returnDate: true
-      })
+    user: async (root, { pseudo }, context, info) => {
+      return User.findOne({ pseudo });
     },
   },
   Mutation: {
@@ -65,7 +51,7 @@ export const resolvers = {
       return User.name;
     },
     createUserWithInput: async (root, { input }, context, info) => {
-      //input.password = await bcrypt.hash(input.password, 10);
+      input.password = await bcrypt.hash(input.password, 10);
       return User.create(input);
     },
     deleteUser: async (root, { _id }, context, info) => {

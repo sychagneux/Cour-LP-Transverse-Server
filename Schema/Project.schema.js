@@ -52,7 +52,8 @@ export const resolvers = {
       return Project.create(input);
     },
     deleteProject: async (root, { _id }, context, info) => {
-      return Project.remove({ _id });
+      var project = await Project.remove({ _id });
+      return true;
     },
     updateProject: async (root, { _id, input }) => {
       return Project.findByIdAndUpdate(_id, input, { new: true });
