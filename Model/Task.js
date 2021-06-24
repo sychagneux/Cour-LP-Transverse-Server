@@ -7,7 +7,7 @@ const taskSchema = new Schema({
     name: String,
     description: String,
     duration: String,
-    status: {Number, default: 0}
+    status: Number
 }, {collection:'Task'});
 
 

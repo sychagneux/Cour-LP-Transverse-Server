@@ -24,10 +24,10 @@ export const typeDef = `
     task(_id: ID!): Task
   }
   extend type Mutation {
-    createTask(name: String!,description: String!,duration: Int!): Boolean
+    createTask(name: String!,description: String!,duration: Int!,status: Int!): Boolean
     createTaskWithInput(input: TaskInput!): Task
     deleteTask(_id: ID!): Boolean
-    updateTask(_id: ID!,input: TaskInput!): Task
+    updateTask(_id: ID!): Boolean
     addTaskToProject(_id: ID!,input: TaskInput!): Boolean
   }
 `;
@@ -56,21 +56,20 @@ export const resolvers = {
       return Task.create(input);
     },
     deleteTask: async (root, { _id }, context, info) => {
-      return Task.remove({ _id });
+      var task = await Task.remove({ _id });
+      return true;
     },
-    updateTask: async (root, { _id, input }) => {
-      return Task.findByIdAndUpdate(_id, input, { new: true });
+    updateTask: async (root, { _id }) => {
+      await Task.findByIdAndUpdate(_id, { status: 1 });
+      return true;
     },
     addTaskToProject: async (root, { _id, input }) => {
-      console.log(input);
       var task = await Task.create(input);
       var project = await Project.findByIdAndUpdate(_id,{
         $push: {
           tasks: task
         }
       })
-      console.log(task)
-      console.log(project)
       project.save();
       return true;
     },

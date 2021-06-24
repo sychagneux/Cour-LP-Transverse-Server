@@ -35,11 +35,10 @@ export const resolvers = {
     },
     
     projects: async () => {
-      return Project.find();
+      return Project.find().populate("tasks");
     },
     project: async (root, { _id }, context, info) => {
-      // With a real mongo db
-      return Project.findOne({ _id });
+      return Project.findOne({ _id }).populate("tasks");
     },
   },
   Mutation: {
