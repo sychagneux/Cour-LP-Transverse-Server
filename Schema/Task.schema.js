@@ -1,5 +1,6 @@
 import {Task} from "../model/Task";
 import {Project} from "../model/Project";
+import {User} from "../model/User";
 
 const dummy = require('mongoose-dummy');
 const ignoredFields = ['_id','created_at', '__v', /detail.*_info/];
@@ -10,7 +11,8 @@ export const typeDef = `
     name: String,
     description: String,
     duration: String,
-    status: Int
+    status: Int,
+    user: User
   }
   input TaskInput{
     name: String,
@@ -28,6 +30,7 @@ export const typeDef = `
     createTaskWithInput(input: TaskInput!): Task
     deleteTask(_id: ID!): Boolean
     updateTask(_id: ID!): Boolean
+    assignTask(_id: ID!,user_id: ID!): Boolean
     addTaskToProject(_id: ID!,input: TaskInput!): Boolean
   }
 `;
@@ -39,7 +42,7 @@ export const resolvers = {
     },
     
     tasks: async () => {
-      return Task.find();
+      return Task.find().populate("user");
     },
     task: async (root, { _id }, context, info) => {
       // With a real mongo db
@@ -61,6 +64,15 @@ export const resolvers = {
     },
     updateTask: async (root, { _id }) => {
       await Task.findByIdAndUpdate(_id, { status: 1 });
+      return true;
+    },
+    assignTask: async (root, { _id, user_id }) => {
+      if (user_id != -99) {
+        var user = await User.findOne({ _id: user_id });
+      } else {
+        var user = null;
+      }
+      await Task.findByIdAndUpdate(_id, { user: user });
       return true;
     },
     addTaskToProject: async (root, { _id, input }) => {

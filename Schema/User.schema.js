@@ -13,11 +13,9 @@ export const typeDef = `
     token: String
   }
   input UserInput{
+    _id: ID
     name: String
-    surname: String
     pseudo: String
-    password: String
-    token: String
   }
   extend type Query {
     userSchemaAssert: String
@@ -39,16 +37,16 @@ export const resolvers = {
     },
     
     users: async () => {
-      return User.find();
+      return User.find().populate();
     },
-    user: async (root, { pseudo }, context, info) => {
-      return User.findOne({ pseudo });
+    user: async (root, { _id }, context, info) => {
+      return User.findOne({ _id });
     },
   },
   Mutation: {
     createUser: async (root, args, context, info) => {
       await User.create(args);
-      return User.name;
+      return true;
     },
     createUserWithInput: async (root, { input }, context, info) => {
       input.password = await bcrypt.hash(input.password, 10);
